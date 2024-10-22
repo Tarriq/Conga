@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    overflow: hidden;
+}
+
+.outerContainer {
+    padding: 2rem;
+    height: 100dvh;
+    scale: 0;
+    opacity: 0;
+    transition: scale 1.5s ease-in-out, opacity 5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.innerContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+#main-slime {
+    width: 70%;
+    max-width: 450px;
+}
+
+.slime {
+    position: absolute;
+    animation-timing-function: linear;
+}
+
+@keyframes slideRight {
+    from {
+        translate: -100%;
+    }
+
+    to {
+        translate: 100vw;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        translate: 100vw;
+    }
+
+    to {
+        translate: -100%;
+    }
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: x-large;
+    font-weight: bold;
+    background: #ab64d8;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 17px;
+    transition: scale 0.2s;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c18ce2;
+    scale: 1.05;
+}
+
+button:disabled {
+    background: gray;
+}

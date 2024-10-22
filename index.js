@@ -3,13 +3,6 @@ const innerContainer = document.querySelector(".innerContainer");
 const button = document.querySelector("button");
 const song = new Audio("Conga.mp3");
 
-const imgURLs = [
-    "https://i.ibb.co/VQ47tk9/pic1.png",
-    "https://i.ibb.co/94BzBKd/pic2.png",
-    "https://i.ibb.co/80TZT5S/pic3.png",
-    "https://i.ibb.co/hDfs5vc/pic4.png",
-];
-
 let currentImageIndex = 0;
 
 
@@ -25,17 +18,6 @@ button.addEventListener("click", () => {
     delay(showContainer, 300);
     delay(createRandomSlimes, 1000);
 });
-
-async function preloadImages() {
-    for (const url of imgURLs) {
-        await new Promise((resolve) => {
-            const img = new Image();
-            img.src = url;
-            img.onload = resolve;
-        });
-    }
-    button.removeAttribute("hidden");
-}
 
 function randomColorLoop() {
     setInterval(() => {
@@ -55,7 +37,7 @@ function animateImages() {
     setInterval(() => {
         currentImageIndex = currentImageIndex < 3 ? currentImageIndex + 1 : 0;
         const slimes = document.querySelectorAll(".slime");
-        slimes.forEach((slime) => (slime.src = imgURLs[currentImageIndex]));
+        slimes.forEach((slime) => (slime.src = `pics/pic${currentImageIndex + 1}.png`));
     }, 90);
 }
 

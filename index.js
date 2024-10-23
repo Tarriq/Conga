@@ -47,13 +47,15 @@ function createRandomSlimes() {
         const slime = document.createElement("img");
         slime.classList.add("slime");
 
-        const minDuration = 0.7;
+        const screenWidthCoefficient = window.innerWidth / 360;
+
+        const minDuration = 1;
         const maxDuration = 1.5;
         const minSize = 10;
         const maxSize = 40;
 
         const duration =
-            minDuration + Math.random() * (maxDuration - minDuration);
+            (minDuration + Math.random() * (maxDuration - minDuration)) * screenWidthCoefficient;
         const width = minSize + Math.random() * (maxSize - minSize);
 
         const maxTop = (window.innerHeight - width) / 10;
